@@ -1,21 +1,21 @@
 # Useful Helm
 
 
-# Delete all releases
+## Delete all releases
 helm delete $(helm ls |awk '{if (NR!=1) {print $1}}')
 
-# Add repository
+## Add repository
 helm repo add {name} {repository link}
 
-# Update 
+## Update 
 helm repo update
 
-# Test Rendering
+## Test Rendering
 helm template . --values test/test.yaml --set deploymentHash=fdeds
 
-# Updating
+## Updating
 helm package src/pom-v7 --destination ./docs
 helm repo index ./docs --url https://github.com/elvikalinoski/useful-helm
 
-# Install a chart:
+## Install a chart:
 helm repo install webplates/[CHART]
